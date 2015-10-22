@@ -2,5 +2,6 @@
 
 int main() {
     printHello();
+    printGoodbye();
     return 0;
 }
