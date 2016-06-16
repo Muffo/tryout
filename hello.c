@@ -1,5 +1,6 @@
 #include <print.h>
 
+/* Useless comment */
 int main() {
     printHello();
     printGoodbye();
