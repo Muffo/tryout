@@ -1,5 +1,14 @@
 language: c
 
+env:
+    global:
+    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+    #   via the "travis encrypt" command using the project repo's public key
+    - secure: "OGz56P6NNPisSMR1a2bZWuGmSeeDmVRDqtkx0VoPYtPh4sD5wcMuYeE4pxrjgMmjTD/poqrTlOa9+RHqydxdeTgASZtEAjsDcwjJHPqxdLf8CLpnEDS0koS46sot+4k4RqRGW5COqyqySIz1oFHWHLV5EIgxVU5GwdzM7CVeeDtwsG/hWioLLGCMI85aouYooUQ/QUVECwxrkM0nae3PXscm57yk8b9D5ob9avID/pzIXai9lX9M8UwfHP+g7DMyaxQYfhAn90rQD/vED1A0IaYqRzz+MdujWikZOjxdThW5SyWpUIdz6LHUujXA5aQwkrEQY+vNeWB8ZV83f0FE9p8qRrXN2uSCC7AzklCFHY/kF1dHkwK81ybLv6ZZ2go7QLmw9JLKwcgIjo4weZcFaYOuIIiusXFY77ztwY63jpAWaDVCyuhJ4E5D6Iqx9XMIAfI13KP4iLSm/PuF1NHYRJA+8W/Ddwu0X3HyUA0wiSkjWm9MmAH/vJ6lIjifdlfM2klWgASBRutVKeuvtClwRFKpWFx1jABeMbqsIYMaJnPoqyn06OxALwDcK4Yve830bsJbXM2Nc590vBeAMhalCRbGep1/1a/OFvFjMv0QDrV1rNFyJHhfE3Dh4hkqCR6x8tl7gNV4fnYNgSzJTkxiJp7kA3mqBGIrc++2VCU4tdA="
+
+addons:
+  
+
 addons:
     apt:
         packages:
@@ -8,6 +17,15 @@ addons:
         sources:
             - llvm-toolchain-precise-3.6
             - ubuntu-toolchain-r-test
+    
+    coverity_scan:
+        project:
+            name: "Muffo/tryout"
+            description: "Build submitted via Travis CI"
+        notification_email: muffo87@gmail.com
+        build_command_prepend: ""
+        build_command:   "make hello"
+        branch_pattern: coverity_scan
 
 os:
     - linux
